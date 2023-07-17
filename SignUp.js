@@ -1,113 +1,93 @@
+var dataUsersArray = JSON.parse(localStorage.getItem("usersData")) || [];
+
 function handleSubmit(event) {
     event.preventDefault();
-    
-    var x =0;
-
+var x =0;
 //שם פרטי
-const vfn = document.getElementById('fn').value
-if(vfn.length < 2){
-    document.getElementById('mfn').innerHTML = 'Minimum 2 letters';
+const vsufn = document.getElementById('sufn').value
+if(vsufn.length < 2){
+    document.getElementById('msufn').innerHTML = 'Minimum 2 letters';
 }else{
     x++;
 }
-
 //שם משפחה
-const vln = document.getElementById('ln').value
-if(vln.length < 2){
-    document.getElementById('mln').innerHTML = 'Minimum 2 letters';
+const vsuln = document.getElementById('suln').value
+if(vsuln.length < 2){
+    document.getElementById('msuln').innerHTML = 'Minimum 2 letters';
 }else{
     x++;
 }
-
 //שם משתמש
-const vun = document.getElementById('un').value  
+const vsuun = document.getElementById('suun').value  
 const engl = /^[A-Za-z]+$/;
-if(vun.length < 4 && !engl.test(vun)){
-    document.getElementById('mun').innerHTML = 'English letters only and Minimum 4 letters';
-}else if(!engl.test(vun)){
-    document.getElementById('mun').innerHTML = 'English letters only';
-}else if(vun.length < 4){
-    document.getElementById('mun').innerHTML = 'Minimum 4 letters';
+if(vsuun.length < 4 && !engl.test(vsuun)){
+    document.getElementById('msuun').innerHTML = 'English letters only and minimum 4 letters';
+}else if(!engl.test(vsuun)){
+    document.getElementById('msuun').innerHTML = 'English letters only';
+}else if(vsuun.length < 4){
+    document.getElementById('msuun').innerHTML = 'Minimum 4 letters';
 }else{
     x++
 }
-
 //בדיקה האם המשתמש קיים במערכת
-var dataArray = JSON.parse(localStorage.getItem("usersData")) || [];
-var isDuplicate = dataArray.some(function(data){
-    return data.userName === vun;
+var isDuplicate = dataUsersArray.some(function(data){
+    return data.userName === vsuun;
 });
-    
 if (isDuplicate) {
-    document.getElementById('mun').innerHTML = 'User exists in the system';
+    document.getElementById('msuun').innerHTML = 'User exists in the system';
 } else {
     x++;
 }
-
 //סיסמה
-const vps = document.getElementById('ps').value
+const vsups = document.getElementById('sups').value
 const el = /[A-Za-z]/;
 const nl = /[0-9]/;
-if(
-    vps.length < 6 &&
-    (!el.test(vps) ||
-    !nl.test(vps))
-){
-    document.getElementById('mps').innerHTML = 'Must contain letters and numbers and Minimum 6 letters';
-}else if(vps.length < 6){
-    document.getElementById('mps').innerHTML = 'Minimum 6 letters';
-}else if(
-    (!el.test(vps) ||
-    !nl.test(vps))
-){
-    document.getElementById('mps').innerHTML = 'Must contain letters and numbers';           
+if(vsups.length < 6 && (!el.test(vsups) || !nl.test(vsups))){
+    document.getElementById('msups').innerHTML = 'Must contain letters and numbers and minimum 6 letters';
+}else if(vsups.length < 6){
+    document.getElementById('msups').innerHTML = 'Minimum 6 letters';
+}else if((!el.test(vsups) || !nl.test(vsups))){
+    document.getElementById('msups').innerHTML = 'Must contain letters and numbers';           
 }else{
     x++;
 }
-
 //אימות סיסמה
-const vps2 = document.getElementById('ps2').value
-if(vps2 != vps){
-    document.getElementById('mps2').innerHTML = 'Passwords do not match';
+const vsups2 = document.getElementById('sups2').value
+if(vsups2 != vsups){
+    document.getElementById('msups2').innerHTML = 'Passwords do not match';
 }else{
     x++;
 }
-
 //אימייל
-const vem = document.getElementById('em').value
+const vsuem = document.getElementById('suem').value
 const eml = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-if(!eml.test(vem)){
-    document.getElementById('mem').innerHTML = 'Invalid email'
+if(!eml.test(vsuem)){
+    document.getElementById('msuem').innerHTML = 'Invalid email'
 }else{
     x++;
 }
-
 //גיל
-const vag = document.getElementById('ag').value
-if(vag < 18){
-    document.getElementById('mag').innerHTML = 'too young'
-}else if(vag > 65){
-    document.getElementById('mag').innerHTML = 'too old'
+const vsuag = document.getElementById('suag').value
+if(vsuag < 18){
+    document.getElementById('msuag').innerHTML = 'too young'
+}else if(vsuag > 65){
+    document.getElementById('msuag').innerHTML = 'too old'
 }else{
     x++;
 }
-
-
+//בדיקה האם כל הנתונים תקינים וקליטתם
 if(x == 8){
-
     var data = {
-        firstName: vfn,
-        lastName: vln,
-        userName: vun,
-        password: vps,
-        password2: vps2,
-        Email: vem,
-        age: vag,
+        firstName: vsufn,
+        lastName: vsuln,
+        userName: vsuun,
+        password: vsups,
+        password2: vsups2,
+        Email: vsuem,
+        age: vsuag,
     };
-    
-//    var dataArray = JSON.parse(localStorage.getItem("usersData")) || [];
-    dataArray.push(data);
-    localStorage.setItem("usersData", JSON.stringify(dataArray));
+    dataUsersArray.push(data);
+    localStorage.setItem("usersData", JSON.stringify(dataUsersArray));
 }
 }
-document.getElementById("bt").addEventListener("click", handleSubmit);
+document.getElementById("subt").addEventListener("click", handleSubmit);
