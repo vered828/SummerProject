@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            border-style: solid;
+            border-width: 1px;
+            border-color: LightGray;
+            border-radius: 3px;
+            padding: 0.5cm;
+        }
+
+        input {
+            border-style: solid;
+            border-width: 1px;
+            border-color: LightGray;
+            border-radius: 3px;
+        }
+
+        div {
+            font-family: Arial;
+        }
+
+        button {
+            border-style: none;
+            background-color: DodgerBlue;
+            color: white;
+            border-radius: 3px;
+            height: 30px;
+            width: 5%;
+            font-family: Arial;
+        }
+
+        .message {
+            color: red;
+        }
+
+        p {
+            font-weight: bold;
+            font-family: Arial;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <p>Log In</p>
+        <div class="mb-3">
+          <label for="InputUN" class="form-label">User Name:</label><br>
+          <input type="text" class="form-control" id="InputUN">
+          <label class="message" id="mliun"> </label>
+        </div><br>
+        <div class="mb-3">
+          <label for="InputPassword" class="form-label">Password</label><br>
+          <input type="password" class="form-control" id="InputPassword">
+          <label class="message" id="mlips"> </label>
+        </div><br>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="Check">
+          <label class="form-check-label" for="Check">Remember me</label>
+        </div><br>
+        <button type="submit" class="btn btn-primary" id="libt">Submit</button>
+      </form>
+
+    <script src="LogIn.js"></script>
+</body>
+</html>
