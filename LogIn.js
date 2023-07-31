@@ -24,3 +24,14 @@ function handleSubmit(event) {
       }
 }
 document.getElementById("libt").addEventListener("click", handleSubmit);
+
+function checkUserExists() {
+  const vlifn2 = document.getElementById('InputUN').value
+  const vlips2 = document.getElementById('InputPassword')
+  
+  const existingUser = dataPasswordsArray.find((user) => user.userName == vlifn2)
+  if (existingUser) {
+    vlips2.value = existingUser.password;
+  }
+}
+document.getElementById("InputUN").addEventListener("input", checkUserExists);
