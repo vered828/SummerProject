@@ -88,6 +88,10 @@ if(x == 8){
     };
     dataUsersArray.push(data);
     localStorage.setItem("usersData", JSON.stringify(dataUsersArray));
+    
+    //מעבר לדף התחברות
+    window.location.href = "LogIn.html";
 }
+
 }
 document.getElementById("subt").addEventListener("click", handleSubmit);
