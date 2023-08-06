@@ -1,4 +1,5 @@
 var dataPasswordsArray = JSON.parse(localStorage.getItem("passwordsData")) || [];
+var dataLoggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -18,6 +19,11 @@ function handleSubmit(event) {
             dataPasswordsArray.push(data);
             localStorage.setItem("passwordsData", JSON.stringify(dataPasswordsArray));
         }
+        dataUsersArray.forEach(function(userdata){
+          if (userdata.userName === vlifn){
+            localStorage.setItem("loggedUser", JSON.stringify(userdata));
+          }
+        });
         window.location.href= "HomePage.html";
       } else {
         document.getElementById('mess').innerHTML = 'Username or password incorrect';
@@ -31,6 +37,7 @@ function checkUserExists() {
   
   const existingUser = dataPasswordsArray.find((user) => user.userName == vlifn2)
   if (existingUser) {
+    //צריך להוסיף שאם המשתמש כבר קיים במערך ה"זכור אותי" הוא לא יוסיף שוב
     vlips2.value = existingUser.password;
   }
 }
