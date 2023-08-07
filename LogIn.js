@@ -24,7 +24,7 @@ function handleSubmit(event) {
             localStorage.setItem("loggedUser", JSON.stringify(userdata));
           }
         });
-        window.location.href= "HomePage.html";
+        window.location.href= "index.html";
       } else {
         document.getElementById('mess').innerHTML = 'Username or password incorrect';
       }
