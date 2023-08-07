@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>SignUp</title>
-  <style>
-    form {
-      border-style: solid;
-      border-width: 1px;
-      border-color: LightGray;
-      border-radius: 3px;
-      padding: 0.5cm;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>SignUp</title>
+    <style>
+      form {
+          border-style: solid;
+          border-width: 1px;
+          border-color: LightGray;
+          border-radius: 3px;
+          padding: 0.5cm;
+      }
 
-    input {
-      border-style: solid;
-      border-width: 1px;
-      border-color: LightGray;
-      border-radius: 3px;
-    }
+      input {
+          border-style: solid;
+          border-width: 1px;
+          border-color: LightGray;
+          border-radius: 3px;
+      }
 
-    label {
-      font-family: Arial;
-    }
+      label {
+          font-family: Arial;
+      }
 
-    button {
-      border-style: none;
-      background-color: DodgerBlue;
-      color: white;
-      border-radius: 3px;
-      height: 30px;
-      width: 5%;
-      font-family: Arial;
-    }
+      button {
+          border-style: none;
+          background-color: DodgerBlue;
+          color: white;
+          border-radius: 3px;
+          height: 30px;
+          width: 5%;
+          font-family: Arial;
+      }
 
-    .message {
-      color: red;
-    }
+      .message {
+          color: red;
+      }
 
-    p {
-      font-weight: bold;
-      font-family: Arial;
-      font-size: 1.5em;
-    }
+      p {
+          font-weight: bold;
+          font-family: Arial;
+          font-size: 1.5em;
+      }
 
-    .nav-link-active {
-      color: gray;
-      pointer-events: none;
-      cursor: default;
-    }
+      .nav-link active {
+        color: gray;
+        pointer-events: none;
+        cursor: default;
+      }
   </style>
 </head>
-
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="index.html">Home Page</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="SignUp.html">SignUp</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="LogIn.html">LogIn</a>
-    </li>
-  </ul>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">    
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="index.html">Home Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="SignUp.html">SignUp</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="LogIn.html">LogIn</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ExpensesManagement.html">Expenses Management</a>
+      </li>
+    </ul>
+  </div>
+<div class="container">
   <form>
-    <p>Sign up</p>
-    <label>First Name:</label><input type="text" id="sufn"></input><label class="message" id="msufn"> </label><br>
-    <br><label>Lest Name:</label><input type="text" id="suln"></input><label class="message" id="msuln"> </label><br>
-    <br><label>User Name:</label><input type="text" id="suun"></input><label class="message" id="msuun"> </label><br>
-    <br><label>Password:</label><input type="password" id="sups"></input><label class="message" id="msups"> </label><br>
-    <br><label>Confirm Password:</label><input type="password" id="sups2"></input><label class="message" id="msups2">
-    </label><br>
-    <br><label>E-mail:</label><input type="email" id="suem"></input><label class="message" id="msuem"> </label><br>
-    <br><label>Age:</label><input type="number" id="suag"></input><label class="message" id="msuag"> </label><br>
-    <br><button id="subt">Sign up</button><label class="message" id="msubt"></label>
+      <p>Sign up</p>
+      <label>First Name:</label><input type="text" id="sufn"></input><label class="message" id="msufn"> </label><br>
+      <br><label>Lest Name:</label><input type="text" id="suln"></input><label class="message" id="msuln"> </label><br>
+      <br><label>User Name:</label><input type="text" id="suun"></input><label class="message" id="msuun"> </label><br>
+      <br><label>Password:</label><input type="password" id="sups"></input><label class="message" id="msups"> </label><br>
+      <br><label>Confirm Password:</label><input type="password" id="sups2"></input><label class="message" id="msups2"> </label><br>
+      <br><label>E-mail:</label><input type="email" id="suem"></input><label class="message" id="msuem"> </label><br>
+      <br><label>Age:</label><input type="number" id="suag"></input><label class="message" id="msuag"> </label><br>
+      <br><button id="subt">Sign up</button><label class="message" id="msubt"></label>
   </form>
-  <script src="SignUp.js"></script>
+</div>
+    <script src="SignUp.js"></script>
 </body>
-
 </html>
