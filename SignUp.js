@@ -2,7 +2,7 @@ var dataUsersArray = JSON.parse(localStorage.getItem("usersData")) || [];
 
 function handleSubmit(event) {
     event.preventDefault();
-var x =0;
+var x = 0;
 //שם פרטי
 const vsufn = document.getElementById('sufn').value
 if(vsufn.length < 2){
