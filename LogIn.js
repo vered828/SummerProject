@@ -3,24 +3,44 @@ var dataLoggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
 function handleSubmit(event) {
     event.preventDefault();
-    const vlifn = document.getElementById('InputUN').value
+    const vliun = document.getElementById('InputUN').value
     const vlips = document.getElementById('InputPassword').value
 
     var dataUsersArray = JSON.parse(localStorage.getItem("usersData")) || [];
 
-    const isDataExists = dataUsersArray.some(data => data.userName === vlifn && data.password === vlips);
+    const isDataExists = dataUsersArray.some(data => data.userName === vliun && data.password === vlips);
     if (isDataExists) {
         const checkbox = document.getElementById("Check");
         if(checkbox.checked){
+          //לבדוק אם המשתמש שמור במערך הסיסמאות
+          const isUserExists = dataPasswordsArray.some(date => date.userName === vliun);
+          if(isUserExists){
+            //אם כן
+              //לבדוק אם הסיסמה שונה מהסיסמה השמוררה באובייקט
+              const isPasswordExists = dataPasswordsArray.some(data => data.userName === vliun && data.password ==! vlips);
+              if(isPasswordExists){
+                //אם כן
+                } else {
+                //אם לא
+                //לעדכן סיסמה
+                var matchingObject = dataPasswordsArray.find(function(obj) {
+                  return obj.userName === vliun;
+                });
+                matchingObject.password = vlips;
+                localStorage.setItem('passwordsData', JSON.stringify(dataPasswordsArray));
+                }
+          } else {
+            //אם לא
             var data = {
-                userName: vlifn,
-                password: vlips,
+              userName: vliun,
+              password: vlips,
             };
             dataPasswordsArray.push(data);
             localStorage.setItem("passwordsData", JSON.stringify(dataPasswordsArray));
+          }
         }
         dataUsersArray.forEach(function(userdata){
-          if (userdata.userName === vlifn){
+          if (userdata.userName === vliun){
             localStorage.setItem("loggedUser", JSON.stringify(userdata));
           }
         });
@@ -37,7 +57,6 @@ function checkUserExists() {
   
   const existingUser = dataPasswordsArray.find((user) => user.userName == vlifn2)
   if (existingUser) {
-    //צריך להוסיף שאם המשתמש כבר קיים במערך ה"זכור אותי" הוא לא יוסיף שוב
     vlips2.value = existingUser.password;
   }
 }
