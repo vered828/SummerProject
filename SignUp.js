@@ -92,6 +92,5 @@ if(x == 8){
     //מעבר לדף התחברות
     window.location.href = "LogIn.html";
 }
-
 }
 document.getElementById("subt").addEventListener("click", handleSubmit);
