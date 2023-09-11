@@ -13,11 +13,11 @@ const shifts = Array.from(new Array(8)).map(_ => {
     const startDate = new Date(date.getFullYear(), date.getMonth(), dayInMoth, 10);
     const endDate = new Date(date.getFullYear(), date.getMonth(), dayInMoth, 20);
     return {
-    totalHours: diff_hours(endDate, startDate),
-    regularHours: Math.min(regular_houre, diff_hours(endDate, startDate)),
-    extraHours: Math.max(0, diff_hours(endDate, startDate) - regular_houre),
-    startDate: startDate,
-    endDate: endDate,
+    totalHours: diff_hours(endDate, startDate), //מספר השעות במשמרת
+    regularHours: Math.min(regular_houre, diff_hours(endDate, startDate)), //שעות רגילות
+    extraHours: Math.max(0, diff_hours(endDate, startDate) - regular_houre), //שעות נוספות
+    startDate: startDate, //תחילת משמרת
+    endDate: endDate, //סיום משמרת
     }
 });
 console.log(shifts);
@@ -26,6 +26,7 @@ document.getElementById('totalHours').innerHTML = 'Total Hours ' + shifts.reduce
     return acc + curr.totalHours;
 }, 0);
 
+//Feature #4: Expenses management
 var username = dataLoggedUser.userName;
 const expensesKey = `${username}Expenses`;
 var ExpensesKey = JSON.parse(localStorage.getItem(expensesKey)) || [];
