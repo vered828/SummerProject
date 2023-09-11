@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('total').innerHTML = ShiftsDataKey.total;
 });
 
-document.getElementById("Submit").addEventListener("click", function (event){
+document.getElementById("Submit").addEventListener("click", function (event) {
     event.preventDefault();
 
     var start = new Date(document.getElementById('start').value);
@@ -19,7 +19,7 @@ document.getElementById("Submit").addEventListener("click", function (event){
     var data = {
         start: start,
         end: end,
-        total: (end-start)/(1000*60*60),
+        total: (end - start) / (1000 * 60 * 60),
     };
     ShiftsKey.push(data);
     localStorage.setItem(shiftsKey, JSON.stringify(ShiftsKey));
@@ -29,13 +29,13 @@ document.getElementById("Submit").addEventListener("click", function (event){
         totalHours = totalHours + ShiftsKey[i].total;
     };
     document.getElementById('total').innerHTML = totalHours;
-    
+
     //חישוב שעות נוספות לפי 9+ שעות ביום עבודה
     var regularHours = 0;
     var extraHours = 0;
     for (var i = 0; i < ShiftsKey.length; i++) {
         var dailyHours = ShiftsKey[i].total;
-        if(dailyHours > 9){
+        if (dailyHours > 9) {
             extraHours = extraHours + (dailyHours - 9);
             regularHours = regularHours + 9;
         } else {
@@ -43,7 +43,7 @@ document.getElementById("Submit").addEventListener("click", function (event){
         }
     };
 
-    var sum={
+    var sum = {
         regular: regularHours,
         extra: extraHours,
         total: totalHours
@@ -53,7 +53,7 @@ document.getElementById("Submit").addEventListener("click", function (event){
     document.getElementById('extra').innerHTML = "Extra hours: " + extraHours;
 });
 
-document.getElementById("regularI").addEventListener("mouseover", function() {
+document.getElementById("regularI").addEventListener("mouseover", function () {
     regularTooltip.style.display = "block"
 });
 

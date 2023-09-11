@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>SignUp</title>
-    <style>
-      form {
-          border-style: solid;
-          border-width: 1px;
-          border-color: LightGray;
-          border-radius: 3px;
-          padding: 0.5cm;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>SignUp</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
 
-      input {
-          border-style: solid;
-          border-width: 1px;
-          border-color: LightGray;
-          border-radius: 3px;
-      }
+    form {
+      border-style: solid;
+      border-width: 1px;
+      border-color: LightGray;
+      border-radius: 3px;
+      padding: 0.5cm;
+    }
 
-      label {
-          font-family: Arial;
-      }
+    input {
+      border-style: solid;
+      border-width: 1px;
+      border-color: LightGray;
+      border-radius: 3px;
+    }
 
-      button {
-          border-style: none;
-          background-color: DodgerBlue;
-          color: white;
-          border-radius: 3px;
-          height: 30px;
-          width: 5%;
-          font-family: Arial;
-      }
 
-      .message {
-          color: red;
-      }
+    button {
+      border-style: none;
+      background-color: DodgerBlue;
+      color: white;
+      border-radius: 3px;
+      height: 30px;
+      width: 5%;
+    }
 
-      p {
-          font-weight: bold;
-          font-family: Arial;
-          font-size: 1.5em;
-      }
+    .message {
+      color: red;
+    }
 
-      .nav-link active {
-        color: gray;
-        pointer-events: none;
-        cursor: default;
-      }
+    p {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    .nav-link active {
+      color: gray;
+      pointer-events: none;
+      cursor: default;
+    }
   </style>
 </head>
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">    
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
   <div class="container">
     <ul class="nav nav-pills">
       <li class="nav-item">
@@ -78,50 +79,51 @@
       </li>
     </ul>
   </div>
-<div class="container">
-  <form>
+  <div class="container">
+    <form>
       <p>Sign up</p>
       <div class="mb-3 form-check">
         <label>First Name:</label>
-        <input type="text" id="sufn"/>
+        <input name="fname" type="text" id="sufn" />
         <label class="message" id="msufn"></label>
       </div>
       <div class="mb-3 form-check">
         <label>Lest Name:</label>
-        <input type="text" id="suln"/>
+        <input type="text" id="suln" />
         <label class="message" id="msuln"></label>
       </div>
       <div class="mb-3 form-check">
         <label>User Name:</label>
-        <input type="text" id="suun"/>
+        <input type="text" id="suun" />
         <label class="message" id="msuun"></label>
       </div>
       <div class="mb-3 form-check">
         <label>Password:</label>
-        <input type="password" id="sups"/>
+        <input type="password" id="sups" />
         <label class="message" id="msups"></label>
       </div>
       <div class="mb-3 form-check">
         <label>Confirm Password:</label>
-        <input type="password" id="sups2"/>
+        <input type="password" id="sups2" />
         <label class="message" id="msups2"></label>
       </div>
       <div class="mb-3 form-check">
         <label>E-mail:</label>
-        <input type="email" id="suem"/>
+        <input type="email" id="suem" />
         <label class="message" id="msuem"></label>
       </div>
       <div class="mb-3 form-check">
         <label>Age:</label>
-        <input type="number" id="suag"/>
+        <input type="number" id="suag" />
         <label class="message" id="msuag"></label>
       </div>
       <div class="mb-3 form-check">
         <button id="subt">Sign up</button>
         <label class="message" id="msubt"></label>
       </div>
-  </form>
-</div>
-    <script src="SignUp.js"></script>
+    </form>
+  </div>
+  <script src="SignUp.js"></script>
 </body>
+
 </html>
