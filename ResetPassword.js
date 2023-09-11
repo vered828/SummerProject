@@ -58,7 +58,7 @@ function resetPassword(event) {
                     localStorage.setItem('usersData', JSON.stringify(dataUsersArray));
                     popup.style.display = "none"
                     } else {
-                    document.getElementById('codeMess').innerHTML = 'Incorrect code';
+                    document.getElementById('codeMess').innerHTML = 'Incorrect code'; //קוד שגוי
                     }   
                 });
             } else {
