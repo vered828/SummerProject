@@ -5,11 +5,31 @@ var ShiftsKey = JSON.parse(localStorage.getItem(shiftsKey)) || [];
 const shiftsDataKey = `${username}ShiftsData`;
 var ShiftsDataKey = JSON.parse(localStorage.getItem(shiftsDataKey)) || {};
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('regular').innerHTML = "Regular hours: " + ShiftsDataKey.regular;
-    document.getElementById('extra').innerHTML = "Extra hours: " + ShiftsDataKey.extra;
-    document.getElementById('total').innerHTML = ShiftsDataKey.total;
-});
+document.getElementById('regular').innerHTML = "Regular hours: " + ShiftsDataKey.regular;
+document.getElementById('extra').innerHTML = "Extra hours: " + ShiftsDataKey.extra;
+document.getElementById('total').innerHTML = ShiftsDataKey.total;
+
+var xGiven = 0;
+for (var x = 0; x < ShiftsKey.length; x++) {
+    var table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.rows.length);
+
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+    var cell4 = newRow.insertCell(3);
+
+    cell1.innerHTML = ShiftsKey[x].start;
+    cell2.innerHTML = ShiftsKey[x].end;
+    cell3.innerHTML = ShiftsKey[x].total;
+
+    var button = document.createElement("button");
+    button.textContent = "delete row";
+    var buttonId = "button" + x;  // לדוג', "button3" עבור שורה חדשה
+    button.id = buttonId;
+    cell4.appendChild(button);
+    xGiven = x;
+}
 
 document.getElementById("Submit").addEventListener("click", function (event) {
     event.preventDefault();
@@ -25,10 +45,29 @@ document.getElementById("Submit").addEventListener("click", function (event) {
     localStorage.setItem(shiftsKey, JSON.stringify(ShiftsKey));
 
     var totalHours = 0;
-    for (var i = 0; i < ShiftsKey.length; i++) {
-        totalHours = totalHours + ShiftsKey[i].total;
+    for (var y = 0; y < ShiftsKey.length; y++) {
+        totalHours = totalHours + ShiftsKey[y].total;
     };
     document.getElementById('total').innerHTML = totalHours;
+    
+    //עדכון טבלה
+    xGiven++
+    var table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.rows.length);
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    var cell3 = newRow.insertCell(2);
+    var cell4 = newRow.insertCell(3);
+
+    cell1.innerHTML = start;
+    cell2.innerHTML = end;
+    cell3.innerHTML = (end - start) / (1000 * 60 * 60);
+
+    var button = document.createElement("button");
+    button.textContent = "delete row";
+    var buttonId = "button" + xGiven;  // לדוג', "button3" עבור שורה חדשה
+    button.id = buttonId;
+    cell4.appendChild(button);
 
     //חישוב שעות נוספות לפי 9+ שעות ביום עבודה
     var regularHours = 0;
@@ -53,9 +92,8 @@ document.getElementById("Submit").addEventListener("click", function (event) {
     document.getElementById('extra').innerHTML = "Extra hours: " + extraHours;
 });
 
-document.getElementById("regularI").addEventListener("mouseover", function () {
+document.getElementById("regularI").addEventListener("mouseover", function() {
     regularTooltip.style.display = "block"
 });
 
-//צריך להוסיף הערות לשעות רגילות ולשעות נוספות
-//צריך לעשות שהטבלה תתעדכן לפי המערך דיווח שעות
+//צריך להוסיף התניה של מחיקת שורה
