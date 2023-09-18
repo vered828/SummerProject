@@ -1,212 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Shifts Management</title>
-  <style>
-    form {
-      border-style: solid;
-      border-width: 1px;
-      border-color: LightGray;
-      border-radius: 3px;
-      padding: 0.5cm;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Shifts Management</title>
+    <style>
+        form {
+          border-style: solid;
+          border-width: 1px;
+          border-color: LightGray;
+          border-radius: 3px;
+          padding: 0.5cm;
+        }
+        
+        input {
+          border-style: solid;
+          border-width: 1px;
+          border-color: LightGray;
+          border-radius: 3px;
+        }
+        
+        label {
+          font-family: Arial;
+        }
+        
+        button {
+          border-style: none;
+          background-color: DodgerBlue;
+          color: white;
+          border-radius: 3px;
+        }
 
-    input {
-      border-style: solid;
-      border-width: 1px;
-      border-color: LightGray;
-      border-radius: 3px;
-    }
+        table {
+          border-collapse: collapse;
+        }
+        th {
+          padding: 8px;
+        }
+        td {
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: rgb(223, 221, 221);
+        }
 
-    label {
-      font-family: Arial;
-    }
+        .note {
+          position: relative;
+          display: inline-block;
+          padding: 10px;
+          border-radius: 5px;
+          margin-right: 100px; /* מרווח בין התיבות */
+        }
+        .summary {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 150px;
+          border: 1px solid lightskyblue;
+          border-radius: 8px;
+          padding: 5px;
+          background-color: rgba(135, 206, 250, 0.4);
+          color: darkslateblue;
+        }
+        .icon {
+          border: 1px solid darkslateblue;
+          color: darkslateblue;
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          line-height: 24px;
+          border-radius: 50%;
+          cursor: pointer; /* כדי להראות שהאייקון הוא לחיצה אפשרית */
+        }
+        .tooltip {
+          position: absolute;
+          top: -30px;
+          background-color: darkslateblue;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
+        #regularTooltip {
+          display: none;
+        }
+        #regularI:hover #regularTooltip {
+          display: block;
+        }
+        #extraTooltip {
+          display: none;
+        }
+        #extraI:hover #extraTooltip {
+          display: block;
+        }
 
-    button {
-      border-style: none;
-      background-color: DodgerBlue;
-      color: white;
-      border-radius: 3px;
-      height: 30px;
-      width: 8%;
-      font-family: Arial;
-    }
-
-    table {
-      border-collapse: collapse;
-    }
-
-    th {
-      padding: 8px;
-    }
-
-    td {
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: rgb(223, 221, 221);
-    }
-
-    .summary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 150px;
-      border: 1px solid lightskyblue;
-      border-radius: 8px;
-      padding: 5px;
-      background-color: rgba(135, 206, 250, 0.4);
-      color: darkslateblue;
-    }
-
-    .icon {
-      border: 1px solid darkslateblue;
-      color: darkslateblue;
-      width: 24px;
-      height: 24px;
-      text-align: center;
-      line-height: 24px;
-      border-radius: 50%;
-      cursor: pointer;
-      /* כדי להראות שהאייקון הוא לחיצה אפשרית */
-    }
-
-    .tooltip {
-      position: absolute;
-      /*top: -30px;
-          left: 50%;
-          transform: translateX(-50%);*/
-      background-color: #333;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: none;
-    }
-
-    #regularI:hover #regularTooltip {
-      display: block;
-    }
-
-    .tank {
-      display: flex;
-      margin-bottom: 20px;
-    }
-
-    .box {
-      margin-right: 100px;
-      /* מרווח בין התיבות */
-    }
-  </style>
+        .tank {
+          display: flex;
+          margin-bottom: 20px;
+        }
+        .box {
+          margin-right: 100px; /* מרווח בין התיבות */
+        }
+    </style>
 </head>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">    
+    <div class="container">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="SignUp.html">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="LogIn.html">LogIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ExpensesManagement.html">Expenses Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ResetPassword.html">Reset Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="ShiftsManagement.html">Shifts Management</a>
+          </li>
+        </ul>
+    </div>
+    <div class="container">
+        <form>
+            <table id="myTable">
+                <thead>
+                  <tr>
+                    <th>Start date and hour</th>
+                    <th>End date and hour</th>
+                    <th>Total hours</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- כאן יוסבו השורות מה-JavaScript -->
+                </tbody>
+                <tr>
+                  <th>Total:</th>
+                  <th></th>
+                  <th id="total"></th>
+                </tr>
+            </table>
 
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
-  <div class="container">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="index.html">Home Page</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="SignUp.html">SignUp</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="LogIn.html">LogIn</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="ExpensesManagement.html">Expenses Management</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Profile.html">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="ResetPassword.html">Reset Password</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="ShiftsManagement.html">Shifts Management</a>
-      </li>
-    </ul>
-  </div>
-  <div class="container">
-    <form>
-      <table>
-        <thead>
-          <tr>
-            <th>Start date and hour</th>
-            <th>End date and hour</th>
-            <th>Total hours</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody id="table-body">
-          <!-- כאן יוסבו השורות מה-JavaScript -->
-          <tr>
-            <td>תא 1</td>
-            <td>תא 2</td>
-            <td>תא 3</td>
-            <td>תא 4</td>
-          </tr>
-          <tr>
-            <td>תא 5</td>
-            <td>תא 6</td>
-            <td>תא 7</td>
-            <td>תא 8</td>
-          </tr>
-        </tbody>
-        <tr>
-          <th>Total:</th>
-          <th></th>
-          <th id="total"></th>
-        </tr>
-      </table>
+            <br><br>
+            <div class="tank">
+              <div class="note">
+                  <div class="summary">
+                      <div id="regular">Regular hours:</div>
+                      <i class="icon" id="regularI">i</i>
+                  </div>
+                  <div class="tooltip" id="regularTooltip">סה"כ שעות עבודה, עד 9 שעות ביום</div>
+              </div>
+      
+              <div class="note">
+                  <div class="summary">
+                      <div id="extra">Extra hours:</div>
+                      <i class="icon" id="extraI">i</i>
+                  </div>
+                  <div class="tooltip" id="extraTooltip">סה"כ שעות עבודה החורגות מ9 שעות ביום</div>
+              </div>
+            </div>
 
-      <div class="tank">
-        <div class="box">
-          <div class="summary">
-            <div id="regular">Regular hours:</div>
-            <span class="icon" id="regularI">i</span>
-          </div>
-          <div class="tooltip" id="regularTooltip">זוהי הערה שתוצג</div>
-        </div>
-        <div class="box">
-          <div class="summary">
-            <div id="extra">Extra hours:</div>
-            <span class="icon">i</span>
-          </div>
-          <div class="tooltip">זוהי הערה שתוצג</div>
-        </div>
-      </div>
-
-      <div class="tank">
-        <div class="box">
-          <div>Start date and hour</div>
-          <input id="start" type="datetime-local">
-        </div>
-        <div class="box">
-          <div>End date and hour</div>
-          <input id="end" type="datetime-local">
-        </div>
-      </div>
+            <div class="tank">
+                <div class="box">
+                    <div>Start date and hour</div>
+                    <input id="start" type="datetime-local">
+                </div>
+                <div class="box">
+                    <div>End date and hour</div>
+                    <input id="end" type="datetime-local">
+                </div>
+            </div>
 
             <button id="Submit">Submit form</button>
         </form>
     </div>
     <script src="ShiftsManagement.js"></script>
 </body>
-
 </html>
 
 <script>
+  /*
+  לא עובד בגלל הגדרת השורה:
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  */
   const icon = document.querySelector("#regularI");
   const tooltip = document.querySelector("#regularTooltip");
   icon.addEventListener("mouseover", () => {
-    tooltip.style.display = "block";
+  tooltip.style.display = "block";
   });
   icon.addEventListener("mouseout", () => {
-    tooltip.style.display = "none";
+  tooltip.style.display = "none";
+  });
+
+  const icon2 = document.querySelector("#extraI");
+  const tooltip2 = document.querySelector("#extraTooltip");
+  icon2.addEventListener("mouseover", () => {
+  tooltip2.style.display = "block";
+  });
+  icon2.addEventListener("mouseout", () => {
+  tooltip2.style.display = "none";
   });
 </script>
